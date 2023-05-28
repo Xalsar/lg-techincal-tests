@@ -10,13 +10,15 @@ import JSONdata from "./data.json";
 
 const margin = { top: 20, right: 30, bottom: 55, left: 70 };
 
+const svgId = "chart-test-001";
+
 const BarsChart = () => {
   useEffect(() => {
     const width = document.querySelector("body")!.clientWidth;
     const height = 400;
 
     // CONTAINER
-    const container = d3.select("#chart-test-001");
+    const container = d3.select("#" + svgId);
 
     // SCALES
     const x_scale = d3
@@ -69,7 +71,7 @@ const BarsChart = () => {
 
   return (
     <>
-      <svg id="chart-test-001"></svg>
+      <svg id={svgId}></svg>
     </>
   );
 };
