@@ -6,50 +6,65 @@ import { useEffect } from "react";
 
 import classes from "./Test001.module.scss";
 
-const DUMMY_DATA = [
-  { id: 1, value: 10, region: "USA" },
-  { id: 2, value: 11, region: "India" },
-  { id: 3, value: 12, region: "Taiwan" },
-  { id: 4, value: 6, region: "Lichtenstein" },
-  { id: 5, value: 4, region: "Spain" },
-  { id: 6, value: 9, region: "Portugal" },
-  { id: 7, value: 3, region: "Japan" },
-  { id: 8, value: 10, region: "Korea" },
-  { id: 9, value: 3, region: "China" },
-];
-
-const width = 800;
-const height = 400;
+import JSONdata from "./data.json";
 
 const margin = { top: 20, right: 30, bottom: 55, left: 70 };
 
 const Test001 = () => {
   useEffect(() => {
-    const xScale = d3
-      .scaleBand()
-      .domain(DUMMY_DATA.map((data) => data.region))
-      .range([0, width])
-      .padding(0.1);
-    const yScale = d3
-      .scaleLinear()
-      .domain([0, Number(d3.max(DUMMY_DATA, (d) => d.value))])
-      .range([height, 0]);
+    const width = document.querySelector("body")!.clientWidth;
+    const height = 400;
 
+    // CONTAINER
     const container = d3.select("#chart-test-001");
 
+    // SCALES
+    const x_scale = d3
+      .scaleBand()
+      .domain(JSONdata.map((data) => data.firstName + " " + data.lastName))
+      .range([margin.left, width - margin.right])
+      .padding(0.1);
+    const y_scale = d3
+      .scaleLinear()
+      .domain([0, Number(d3.max(JSONdata, (d) => d.age))])
+      .range([height - margin.bottom, margin.top]);
+
+    // AXIS
+    const x_axis = d3.axisBottom(x_scale);
+    const y_axis = d3.axisLeft(y_scale);
+
+    // CONTAINER
     container
-      .attr("width", width)
-      .attr("height", height)
+      .attr("viewBox", [0, 0, width, height + 200])
       .classed(classes.container, true)
       // SELECT THE BARS
       .selectAll(classes.bar)
-      .data(DUMMY_DATA)
+      .data(JSONdata)
       .join("rect")
       .classed(classes.bar, true)
-      .attr("width", xScale.bandwidth())
-      .attr("height", (data) => height - yScale(data.value))
-      .attr("x", (data) => String(xScale(data.region)))
-      .attr("y", (data) => yScale(data.value));
+      .attr("width", x_scale.bandwidth())
+      .attr("height", (data) => height - y_scale(data.age) - 55)
+      .attr("x", (data) =>
+        String(x_scale(data.firstName + " " + data.lastName))
+      )
+      .attr("y", (data) => y_scale(data.age));
+
+    // append x axis
+    container
+      .append("g")
+      .attr("transform", `translate(0,${height - margin.bottom})`)
+      .call(x_axis)
+      .selectAll("text") // everything from this point is optional
+      .style("text-anchor", "end")
+      .attr("dx", "-.8em")
+      .attr("dy", ".15em")
+      .attr("transform", "rotate(-65)");
+
+    // add y axis
+    container
+      .append("g")
+      .attr("transform", `translate(${margin.left},0)`)
+      .call(y_axis);
   }, []);
 
   return (
