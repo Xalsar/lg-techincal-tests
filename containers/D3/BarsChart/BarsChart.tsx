@@ -4,13 +4,13 @@ import * as d3 from "d3";
 
 import { useEffect } from "react";
 
-import classes from "./Test001.module.scss";
+import classes from "./BarsChart.module.scss";
 
 import JSONdata from "./data.json";
 
 const margin = { top: 20, right: 30, bottom: 55, left: 70 };
 
-const Test001 = () => {
+const BarsChart = () => {
   useEffect(() => {
     const width = document.querySelector("body")!.clientWidth;
     const height = 400;
@@ -74,4 +74,4 @@ const Test001 = () => {
   );
 };
 
-export default Test001;
+export default BarsChart;

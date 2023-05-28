@@ -1,7 +1,7 @@
-import Test001 from "../../../containers/D3/Test001/Test001";
+import BarsChart from "../../../containers/D3/BarsChart/BarsChart";
 
 const D3test = () => {
-  return <Test001 />;
+  return <BarsChart />;
 };
 
 export default D3test;
