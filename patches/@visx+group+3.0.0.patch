@@ -1,0 +1,17 @@
+diff --git a/node_modules/@visx/group/package.json b/node_modules/@visx/group/package.json
+index 90b8735..e18b4b5 100644
+--- a/node_modules/@visx/group/package.json
++++ b/node_modules/@visx/group/package.json
+@@ -39,5 +39,11 @@
+   "publishConfig": {
+     "access": "public"
+   },
+-  "gitHead": "2fbffbaee80b88302274266112f8ad9a241def33"
++  "gitHead": "2fbffbaee80b88302274266112f8ad9a241def33",
++  "exports": {
++    ".": {
++        "import":"./esm/index.js", 
++        "require": "./lib/index.js"
++    }
++  }
+ }

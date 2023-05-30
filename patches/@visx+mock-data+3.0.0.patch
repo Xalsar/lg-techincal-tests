@@ -1,0 +1,69 @@
+diff --git a/node_modules/@visx/mock-data/lib/generators/genRandomNormalPoints.js b/node_modules/@visx/mock-data/lib/generators/genRandomNormalPoints.js
+index b5601f9..6a0f619 100644
+--- a/node_modules/@visx/mock-data/lib/generators/genRandomNormalPoints.js
++++ b/node_modules/@visx/mock-data/lib/generators/genRandomNormalPoints.js
+@@ -3,7 +3,7 @@
+ exports.__esModule = true;
+ exports.default = genPoints;
+ exports.genPointsRange = genPointsRange;
+-var _d3Random = require("d3-random");
++var _d3Random = import("d3-random");
+ var _getSeededRandom = _interopRequireDefault(require("./getSeededRandom"));
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+ var sqrt3 = Math.sqrt(3);
+diff --git a/node_modules/@visx/mock-data/lib/generators/genStats.js b/node_modules/@visx/mock-data/lib/generators/genStats.js
+index 0420382..cbfce38 100644
+--- a/node_modules/@visx/mock-data/lib/generators/genStats.js
++++ b/node_modules/@visx/mock-data/lib/generators/genStats.js
+@@ -2,7 +2,7 @@
+ 
+ exports.__esModule = true;
+ exports.default = genStats;
+-var _d3Random = require("d3-random");
++var _d3Random = import("d3-random");
+ var defaultRandom = (0, _d3Random.randomNormal)(4, 3);
+ var defaultRandomOffset = function defaultRandomOffset() {
+   return Math.random() * 10;
+diff --git a/node_modules/@visx/mock-data/lib/generators/getSeededRandom.js b/node_modules/@visx/mock-data/lib/generators/getSeededRandom.js
+index 844462b..07c6f31 100644
+--- a/node_modules/@visx/mock-data/lib/generators/getSeededRandom.js
++++ b/node_modules/@visx/mock-data/lib/generators/getSeededRandom.js
+@@ -2,7 +2,7 @@
+ 
+ exports.__esModule = true;
+ exports.default = getSeededRandom;
+-var _d3Random = require("d3-random");
++var _d3Random = import("d3-random");
+ // returns a seeded random number generator
+ function getSeededRandom( /** Seed in the interval [0, 1). */
+ seed) {
+diff --git a/node_modules/@visx/mock-data/lib/index.js b/node_modules/@visx/mock-data/lib/index.js
+index fef4515..6fef392 100644
+--- a/node_modules/@visx/mock-data/lib/index.js
++++ b/node_modules/@visx/mock-data/lib/index.js
+@@ -8,7 +8,7 @@ var _genRandomNormalPoints = _interopRequireDefault(require("./generators/genRan
+ exports.genRandomNormalPoints = _genRandomNormalPoints.default;
+ var _getSeededRandom = _interopRequireDefault(require("./generators/getSeededRandom"));
+ exports.getSeededRandom = _getSeededRandom.default;
+-var _d3Random = require("d3-random");
++var _d3Random = import("d3-random");
+ exports.getRandomNormal = _d3Random.randomNormal;
+ var _genBin = _interopRequireDefault(require("./generators/genBin"));
+ exports.genBin = _genBin.default;
+diff --git a/node_modules/@visx/mock-data/package.json b/node_modules/@visx/mock-data/package.json
+index fc48712..e4a2109 100644
+--- a/node_modules/@visx/mock-data/package.json
++++ b/node_modules/@visx/mock-data/package.json
+@@ -34,5 +34,11 @@
+     "@types/d3-random": "^2.2.0",
+     "d3-random": "^2.2.2"
+   },
+-  "gitHead": "2fbffbaee80b88302274266112f8ad9a241def33"
++  "gitHead": "2fbffbaee80b88302274266112f8ad9a241def33",
++  "exports": {
++    ".": {
++        "import":"./esm/index.js", 
++        "require": "./lib/index.js"
++    }
++  }
+ }

@@ -1,0 +1,30 @@
+diff --git a/node_modules/@visx/curve/lib/index.js b/node_modules/@visx/curve/lib/index.js
+index 2e95771..88f3367 100644
+--- a/node_modules/@visx/curve/lib/index.js
++++ b/node_modules/@visx/curve/lib/index.js
+@@ -2,7 +2,7 @@
+ 
+ exports.__esModule = true;
+ exports.curveStepBefore = exports.curveStepAfter = exports.curveStep = exports.curveNatural = exports.curveMonotoneY = exports.curveMonotoneX = exports.curveLinearClosed = exports.curveLinear = exports.curveCatmullRomOpen = exports.curveCatmullRomClosed = exports.curveCatmullRom = exports.curveCardinalOpen = exports.curveCardinalClosed = exports.curveCardinal = exports.curveBundle = exports.curveBasisOpen = exports.curveBasisClosed = exports.curveBasis = void 0;
+-var _d3Shape = require("d3-shape");
++var _d3Shape = import("d3-shape");
+ exports.curveBasis = _d3Shape.curveBasis;
+ exports.curveBasisClosed = _d3Shape.curveBasisClosed;
+ exports.curveBasisOpen = _d3Shape.curveBasisOpen;
+diff --git a/node_modules/@visx/curve/package.json b/node_modules/@visx/curve/package.json
+index b1e99c7..e440e70 100644
+--- a/node_modules/@visx/curve/package.json
++++ b/node_modules/@visx/curve/package.json
+@@ -27,5 +27,11 @@
+   "publishConfig": {
+     "access": "public"
+   },
+-  "gitHead": "2fbffbaee80b88302274266112f8ad9a241def33"
++  "gitHead": "2fbffbaee80b88302274266112f8ad9a241def33",
++  "exports": {
++    ".": {
++        "import":"./esm/index.js", 
++        "require": "./lib/index.js"
++    }
++  }
+ }

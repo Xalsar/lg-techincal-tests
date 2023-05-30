@@ -1,0 +1,225 @@
+diff --git a/node_modules/@visx/shape/lib/shapes/BarStack.js b/node_modules/@visx/shape/lib/shapes/BarStack.js
+index f3a9530..d82dbc0 100644
+--- a/node_modules/@visx/shape/lib/shapes/BarStack.js
++++ b/node_modules/@visx/shape/lib/shapes/BarStack.js
+@@ -4,7 +4,7 @@ exports.__esModule = true;
+ exports.default = BarStack;
+ var _react = _interopRequireDefault(require("react"));
+ var _classnames = _interopRequireDefault(require("classnames"));
+-var _d3Shape = require("d3-shape");
++var _d3Shape = import("d3-shape");
+ var _group = require("@visx/group");
+ var _accessors = require("../util/accessors");
+ var _getBandwidth = _interopRequireDefault(require("../util/getBandwidth"));
+diff --git a/node_modules/@visx/shape/lib/shapes/BarStackHorizontal.js b/node_modules/@visx/shape/lib/shapes/BarStackHorizontal.js
+index 6f266ae..09fd6eb 100644
+--- a/node_modules/@visx/shape/lib/shapes/BarStackHorizontal.js
++++ b/node_modules/@visx/shape/lib/shapes/BarStackHorizontal.js
+@@ -4,7 +4,7 @@ exports.__esModule = true;
+ exports.default = BarStackHorizontal;
+ var _react = _interopRequireDefault(require("react"));
+ var _classnames = _interopRequireDefault(require("classnames"));
+-var _d3Shape = require("d3-shape");
++var _d3Shape = import("d3-shape");
+ var _group = require("@visx/group");
+ var _accessors = require("../util/accessors");
+ var _getBandwidth = _interopRequireDefault(require("../util/getBandwidth"));
+diff --git a/node_modules/@visx/shape/lib/shapes/link/curve/LinkHorizontalCurve.js b/node_modules/@visx/shape/lib/shapes/link/curve/LinkHorizontalCurve.js
+index ff4d2eb..9e86c80 100644
+--- a/node_modules/@visx/shape/lib/shapes/link/curve/LinkHorizontalCurve.js
++++ b/node_modules/@visx/shape/lib/shapes/link/curve/LinkHorizontalCurve.js
+@@ -5,7 +5,7 @@ exports.default = LinkHorizontalCurve;
+ exports.pathHorizontalCurve = pathHorizontalCurve;
+ var _react = _interopRequireDefault(require("react"));
+ var _classnames = _interopRequireDefault(require("classnames"));
+-var _d3Path = require("d3-path");
++var _d3Path = import("d3-path");
+ var _accessors = require("../../../util/accessors");
+ var _excluded = ["className", "children", "data", "innerRef", "path", "percent", "x", "y", "source", "target"];
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+diff --git a/node_modules/@visx/shape/lib/shapes/link/curve/LinkRadialCurve.js b/node_modules/@visx/shape/lib/shapes/link/curve/LinkRadialCurve.js
+index 30f9a8b..7b57fb3 100644
+--- a/node_modules/@visx/shape/lib/shapes/link/curve/LinkRadialCurve.js
++++ b/node_modules/@visx/shape/lib/shapes/link/curve/LinkRadialCurve.js
+@@ -5,7 +5,7 @@ exports.default = LinkRadialCurve;
+ exports.pathRadialCurve = pathRadialCurve;
+ var _react = _interopRequireDefault(require("react"));
+ var _classnames = _interopRequireDefault(require("classnames"));
+-var _d3Path = require("d3-path");
++var _d3Path = import("d3-path");
+ var _accessors = require("../../../util/accessors");
+ var _excluded = ["className", "children", "data", "innerRef", "path", "percent", "x", "y", "source", "target"];
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+diff --git a/node_modules/@visx/shape/lib/shapes/link/curve/LinkVerticalCurve.js b/node_modules/@visx/shape/lib/shapes/link/curve/LinkVerticalCurve.js
+index 45f14f5..efd6f94 100644
+--- a/node_modules/@visx/shape/lib/shapes/link/curve/LinkVerticalCurve.js
++++ b/node_modules/@visx/shape/lib/shapes/link/curve/LinkVerticalCurve.js
+@@ -5,7 +5,7 @@ exports.default = LinkVerticalCurve;
+ exports.pathVerticalCurve = pathVerticalCurve;
+ var _react = _interopRequireDefault(require("react"));
+ var _classnames = _interopRequireDefault(require("classnames"));
+-var _d3Path = require("d3-path");
++var _d3Path = import("d3-path");
+ var _accessors = require("../../../util/accessors");
+ var _excluded = ["className", "children", "data", "innerRef", "path", "percent", "x", "y", "source", "target"];
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+diff --git a/node_modules/@visx/shape/lib/shapes/link/diagonal/LinkHorizontal.js b/node_modules/@visx/shape/lib/shapes/link/diagonal/LinkHorizontal.js
+index 8eb3b94..22e9e62 100644
+--- a/node_modules/@visx/shape/lib/shapes/link/diagonal/LinkHorizontal.js
++++ b/node_modules/@visx/shape/lib/shapes/link/diagonal/LinkHorizontal.js
+@@ -5,7 +5,7 @@ exports.default = LinkHorizontalDiagonal;
+ exports.pathHorizontalDiagonal = pathHorizontalDiagonal;
+ var _react = _interopRequireDefault(require("react"));
+ var _classnames = _interopRequireDefault(require("classnames"));
+-var _d3Shape = require("d3-shape");
++var _d3Shape = import("d3-shape");
+ var _accessors = require("../../../util/accessors");
+ var _excluded = ["className", "children", "data", "innerRef", "path", "x", "y", "source", "target"];
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+diff --git a/node_modules/@visx/shape/lib/shapes/link/diagonal/LinkRadial.js b/node_modules/@visx/shape/lib/shapes/link/diagonal/LinkRadial.js
+index 76c23ff..00d73bc 100644
+--- a/node_modules/@visx/shape/lib/shapes/link/diagonal/LinkRadial.js
++++ b/node_modules/@visx/shape/lib/shapes/link/diagonal/LinkRadial.js
+@@ -5,7 +5,7 @@ exports.default = LinkRadialDiagonal;
+ exports.pathRadialDiagonal = pathRadialDiagonal;
+ var _react = _interopRequireDefault(require("react"));
+ var _classnames = _interopRequireDefault(require("classnames"));
+-var _d3Shape = require("d3-shape");
++var _d3Shape = import("d3-shape");
+ var _accessors = require("../../../util/accessors");
+ var _excluded = ["className", "children", "data", "innerRef", "path", "angle", "radius", "source", "target"];
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+diff --git a/node_modules/@visx/shape/lib/shapes/link/diagonal/LinkVertical.js b/node_modules/@visx/shape/lib/shapes/link/diagonal/LinkVertical.js
+index e1ec9d2..8b8bf58 100644
+--- a/node_modules/@visx/shape/lib/shapes/link/diagonal/LinkVertical.js
++++ b/node_modules/@visx/shape/lib/shapes/link/diagonal/LinkVertical.js
+@@ -5,7 +5,7 @@ exports.default = LinkVerticalDiagonal;
+ exports.pathVerticalDiagonal = pathVerticalDiagonal;
+ var _react = _interopRequireDefault(require("react"));
+ var _classnames = _interopRequireDefault(require("classnames"));
+-var _d3Shape = require("d3-shape");
++var _d3Shape = import("d3-shape");
+ var _accessors = require("../../../util/accessors");
+ var _excluded = ["className", "children", "data", "innerRef", "path", "x", "y", "source", "target"];
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+diff --git a/node_modules/@visx/shape/lib/shapes/link/line/LinkHorizontalLine.js b/node_modules/@visx/shape/lib/shapes/link/line/LinkHorizontalLine.js
+index 1c6d481..4e9c2c5 100644
+--- a/node_modules/@visx/shape/lib/shapes/link/line/LinkHorizontalLine.js
++++ b/node_modules/@visx/shape/lib/shapes/link/line/LinkHorizontalLine.js
+@@ -5,7 +5,7 @@ exports.default = LinkHorizontalLine;
+ exports.pathHorizontalLine = pathHorizontalLine;
+ var _react = _interopRequireDefault(require("react"));
+ var _classnames = _interopRequireDefault(require("classnames"));
+-var _d3Path = require("d3-path");
++var _d3Path = import("d3-path");
+ var _accessors = require("../../../util/accessors");
+ var _excluded = ["className", "children", "innerRef", "data", "path", "x", "y", "source", "target"];
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+diff --git a/node_modules/@visx/shape/lib/shapes/link/line/LinkRadialLine.js b/node_modules/@visx/shape/lib/shapes/link/line/LinkRadialLine.js
+index dad518c..10c27ad 100644
+--- a/node_modules/@visx/shape/lib/shapes/link/line/LinkRadialLine.js
++++ b/node_modules/@visx/shape/lib/shapes/link/line/LinkRadialLine.js
+@@ -5,7 +5,7 @@ exports.default = LinkRadialLine;
+ exports.pathRadialLine = pathRadialLine;
+ var _react = _interopRequireDefault(require("react"));
+ var _classnames = _interopRequireDefault(require("classnames"));
+-var _d3Path = require("d3-path");
++var _d3Path = import("d3-path");
+ var _accessors = require("../../../util/accessors");
+ var _excluded = ["className", "innerRef", "data", "path", "x", "y", "source", "target", "children"];
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+diff --git a/node_modules/@visx/shape/lib/shapes/link/line/LinkVerticalLine.js b/node_modules/@visx/shape/lib/shapes/link/line/LinkVerticalLine.js
+index 66fb2f6..13e413a 100644
+--- a/node_modules/@visx/shape/lib/shapes/link/line/LinkVerticalLine.js
++++ b/node_modules/@visx/shape/lib/shapes/link/line/LinkVerticalLine.js
+@@ -5,7 +5,7 @@ exports.default = LinkVerticalLine;
+ exports.pathVerticalLine = pathVerticalLine;
+ var _react = _interopRequireDefault(require("react"));
+ var _classnames = _interopRequireDefault(require("classnames"));
+-var _d3Path = require("d3-path");
++var _d3Path = import("d3-path");
+ var _accessors = require("../../../util/accessors");
+ var _excluded = ["className", "innerRef", "data", "path", "x", "y", "source", "target", "children"];
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+diff --git a/node_modules/@visx/shape/lib/shapes/link/step/LinkHorizontalStep.js b/node_modules/@visx/shape/lib/shapes/link/step/LinkHorizontalStep.js
+index 2cca1aa..b0be7b9 100644
+--- a/node_modules/@visx/shape/lib/shapes/link/step/LinkHorizontalStep.js
++++ b/node_modules/@visx/shape/lib/shapes/link/step/LinkHorizontalStep.js
+@@ -5,7 +5,7 @@ exports.default = LinkHorizontalStep;
+ exports.pathHorizontalStep = pathHorizontalStep;
+ var _react = _interopRequireDefault(require("react"));
+ var _classnames = _interopRequireDefault(require("classnames"));
+-var _d3Path = require("d3-path");
++var _d3Path = import("d3-path");
+ var _accessors = require("../../../util/accessors");
+ var _excluded = ["className", "innerRef", "data", "path", "percent", "x", "y", "source", "target", "children"];
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+diff --git a/node_modules/@visx/shape/lib/shapes/link/step/LinkVerticalStep.js b/node_modules/@visx/shape/lib/shapes/link/step/LinkVerticalStep.js
+index e6f6d70..3a8abf2 100644
+--- a/node_modules/@visx/shape/lib/shapes/link/step/LinkVerticalStep.js
++++ b/node_modules/@visx/shape/lib/shapes/link/step/LinkVerticalStep.js
+@@ -5,7 +5,7 @@ exports.default = LinkVerticalStep;
+ exports.pathVerticalStep = pathVerticalStep;
+ var _react = _interopRequireDefault(require("react"));
+ var _classnames = _interopRequireDefault(require("classnames"));
+-var _d3Path = require("d3-path");
++var _d3Path = import("d3-path");
+ var _accessors = require("../../../util/accessors");
+ var _excluded = ["className", "innerRef", "data", "path", "percent", "x", "y", "source", "target", "children"];
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+diff --git a/node_modules/@visx/shape/lib/util/D3ShapeFactories.js b/node_modules/@visx/shape/lib/util/D3ShapeFactories.js
+index edce5e4..0f9839a 100644
+--- a/node_modules/@visx/shape/lib/util/D3ShapeFactories.js
++++ b/node_modules/@visx/shape/lib/util/D3ShapeFactories.js
+@@ -7,7 +7,7 @@ exports.line = line;
+ exports.pie = pie;
+ exports.radialLine = radialLine;
+ exports.stack = stack;
+-var _d3Shape = require("d3-shape");
++var _d3Shape = import("d3-shape");
+ var _setNumberOrNumberAccessor = _interopRequireDefault(require("./setNumberOrNumberAccessor"));
+ var _stackOrder = _interopRequireDefault(require("./stackOrder"));
+ var _stackOffset = _interopRequireDefault(require("./stackOffset"));
+diff --git a/node_modules/@visx/shape/lib/util/stackOffset.js b/node_modules/@visx/shape/lib/util/stackOffset.js
+index 823708f..d53dba1 100644
+--- a/node_modules/@visx/shape/lib/util/stackOffset.js
++++ b/node_modules/@visx/shape/lib/util/stackOffset.js
+@@ -3,7 +3,7 @@
+ exports.__esModule = true;
+ exports.STACK_OFFSET_NAMES = exports.STACK_OFFSETS = void 0;
+ exports.default = stackOffset;
+-var _d3Shape = require("d3-shape");
++var _d3Shape = import("d3-shape");
+ var STACK_OFFSETS = {
+   expand: _d3Shape.stackOffsetExpand,
+   diverging: _d3Shape.stackOffsetDiverging,
+diff --git a/node_modules/@visx/shape/lib/util/stackOrder.js b/node_modules/@visx/shape/lib/util/stackOrder.js
+index dd534ed..7fd4f6a 100644
+--- a/node_modules/@visx/shape/lib/util/stackOrder.js
++++ b/node_modules/@visx/shape/lib/util/stackOrder.js
+@@ -3,7 +3,7 @@
+ exports.__esModule = true;
+ exports.STACK_ORDER_NAMES = exports.STACK_ORDERS = void 0;
+ exports.default = stackOrder;
+-var _d3Shape = require("d3-shape");
++var _d3Shape = import("d3-shape");
+ var STACK_ORDERS = {
+   ascending: _d3Shape.stackOrderAscending,
+   descending: _d3Shape.stackOrderDescending,
+diff --git a/node_modules/@visx/shape/package.json b/node_modules/@visx/shape/package.json
+index 284b2dc..c0741d9 100644
+--- a/node_modules/@visx/shape/package.json
++++ b/node_modules/@visx/shape/package.json
+@@ -44,5 +44,11 @@
+     "@types/d3-hierarchy": "^1.1.6",
+     "d3-hierarchy": "^1.1.8"
+   },
+-  "gitHead": "2fbffbaee80b88302274266112f8ad9a241def33"
++  "gitHead": "2fbffbaee80b88302274266112f8ad9a241def33",
++  "exports": {
++    ".": {
++        "import":"./esm/index.js", 
++        "require": "./lib/index.js"
++    }
++  }
+ }
