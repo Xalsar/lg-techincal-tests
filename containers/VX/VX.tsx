@@ -7,6 +7,7 @@ import { Group } from "@visx/group";
 import { AxisLeft, AxisBottom } from "@visx/axis";
 import { GridRows, GridColumns } from "@visx/grid";
 import { Line, LinePath } from "@visx/shape";
+import { LinearGradient } from "@visx/gradient";
 
 // UTILS
 import { ContinuousInput, scaleLinear } from "@visx/scale";
@@ -42,7 +43,7 @@ const LineChart = ({ width, height }: { width: number; height: number }) => {
   const margin = { top: 40, right: 40, bottom: 50, left: 40 };
 
   const innerWidth = width - margin.left - margin.right;
-  const innerHeigth = height - margin.top - margin.bottom;
+  const innerHeight = height - margin.top - margin.bottom;
 
   // DATA
   const getRD = (d: CountryData) => d.amount;
@@ -59,7 +60,7 @@ const LineChart = ({ width, height }: { width: number; height: number }) => {
   const yDomain: any = extent(data, getRD);
 
   const rdScale = scaleLinear({
-    range: [innerHeigth, 0],
+    range: [innerHeight, 0],
     domain: yDomain,
     nice: true,
   });
@@ -109,9 +110,11 @@ const LineChart = ({ width, height }: { width: number; height: number }) => {
 
   const handleTooltip = (event: Element | EventType) => {
     const { x } = localPoint(event) || { x: 0 };
+
     const x0 = timeScale.invert(x - margin.left); // get Date from the scale
 
     const index = bisectDate(data, x0, 1); // get index of this date from the array
+
     const d0 = data[index - 1];
     const d1 = data[index];
     let d = d0;
@@ -123,6 +126,7 @@ const LineChart = ({ width, height }: { width: number; height: number }) => {
           ? d1
           : d0;
     }
+
     showTooltip({
       tooltipData: getD(d.year),
       tooltipLeft: x,
@@ -131,7 +135,7 @@ const LineChart = ({ width, height }: { width: number; height: number }) => {
   };
 
   return (
-    <>
+    <div style={{ position: "relative" }}>
       <svg width={width} height={height}>
         <rect
           x={0}
@@ -142,25 +146,26 @@ const LineChart = ({ width, height }: { width: number; height: number }) => {
           rx={14}
         />
         <Group left={margin.left} top={margin.top}>
-          <rect width={innerWidth} height={innerHeigth} fill={"#A0AEC0"} />
-
-          {/* GRIDS */}
           <GridRows
             scale={rdScale}
             width={innerWidth}
-            height={innerHeigth - margin.top}
+            height={innerHeight - margin.top}
             stroke="#EDF2F7"
             strokeOpacity={0.2}
           />
           <GridColumns
             scale={timeScale}
             width={innerWidth}
-            height={innerHeigth}
+            height={innerHeight}
             stroke="#EDF2F7"
             strokeOpacity={0.2}
           />
-
-          {/* AXIS */}
+          <LinearGradient
+            id="area-gradient"
+            from={"#43b284"}
+            to={"#43b284"}
+            toOpacity={0.1}
+          />
           <AxisLeft
             stroke={"#EDF2F7"}
             tickStroke={"#EDF2F7"}
@@ -185,15 +190,13 @@ const LineChart = ({ width, height }: { width: number; height: number }) => {
             stroke={"#EDF2F7"}
             // tickFormat={formatDate}
             tickStroke={"#EDF2F7"}
-            top={innerHeigth}
+            top={innerHeight}
             tickLabelProps={() => ({
               fill: "#EDF2F7",
               fontSize: 11,
               textAnchor: "middle",
             })}
           />
-
-          {/* LINES */}
           {series.map((sData, i) => (
             <LinePath
               key={i}
@@ -204,7 +207,6 @@ const LineChart = ({ width, height }: { width: number; height: number }) => {
               y={(d) => rdScale(getRD(d)) ?? 0}
             />
           ))}
-
           {tooltipData && (
             <g>
               <Line
@@ -217,10 +219,9 @@ const LineChart = ({ width, height }: { width: number; height: number }) => {
               />
             </g>
           )}
-
           {tooltipData &&
             tooltipData.map((d: DataItem, i: number) => (
-              <g>
+              <g key={i}>
                 <GlyphCircle
                   left={tooltipLeft - margin.left}
                   top={rdScale(d.amount) + 2}
@@ -244,7 +245,7 @@ const LineChart = ({ width, height }: { width: number; height: number }) => {
           />
         </Group>
       </svg>
-      {/* TOOLTIP */}
+      {/* render a tooltip */}
       {tooltipData ? (
         <TooltipWithBounds
           key={Math.random()}
@@ -257,7 +258,7 @@ const LineChart = ({ width, height }: { width: number; height: number }) => {
           <p>{`Year: ${getDate(tooltipData[1])}`}</p>
         </TooltipWithBounds>
       ) : null}
-    </>
+    </div>
   );
 };
 
@@ -268,7 +269,6 @@ const VX = () => {
         height: "780px",
         width: "780px",
         margin: "0 auto",
-        position: "relative",
       }}
     >
       <ParentSize>
